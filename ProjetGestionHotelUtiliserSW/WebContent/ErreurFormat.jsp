@@ -4,12 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Liste des chambres disponibles</title>
+<title>Quelque chose cloche...</title>
 </head>
 <body>
-	Voici les chambres disponibles selon votre requête : 
-	
-
+	Ohoh... Il semble que les champs complétés ne sont pas valides ! Revoyez ça s'il vous plaît. 
 	<a href = "Index.html"> home </a>
 </body>
 </html>

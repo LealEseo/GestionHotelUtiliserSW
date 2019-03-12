@@ -37,18 +37,22 @@ public class ReserverChambreServ extends HttpServlet {
 		String typeChambre = request.getParameter("typeChambre"); 
 		String dateArrivee = request.getParameter("dateArrivee"); 
 		String dateDepart = request.getParameter("dateDepart"); 
-		
 		//Utiliser le serviceWeb 
 		
 		if (budgetMin>budgetMax) {
 			RequestDispatcher dispat = request.getRequestDispatcher("ErreurBudgetMinetMax.jsp"); 
 			dispat.forward(request, response);
+		
+		}
+		else if (nbVoyageurs<=0 || budgetMin <=0 || budgetMax <=0) {
+			RequestDispatcher dispat = request.getRequestDispatcher("ErreurFormat.jsp"); 
+			dispat.forward(request, response);
 		}
 		else {
-			Chambre[] listeChambres = new Chambre[100];
-			trouverChambre(new Chambre(1,nbVoyageurs,typeChambre,50),budgetMin,budgetMax,dateDepart,dateArrivee);
-			HttpSession session = request.getSession(); 
-			session.setAttribute("listeChambres", listeChambres);
+//			Chambre[] listeChambres = new Chambre[100];
+//			trouverChambre(new Chambre(nbVoyageurs,typeChambre),budgetMin,budgetMax,dateDepart,dateArrivee);
+//			HttpSession session = request.getSession(); 
+//			session.setAttribute("listeChambres", listeChambres);
 		
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);
