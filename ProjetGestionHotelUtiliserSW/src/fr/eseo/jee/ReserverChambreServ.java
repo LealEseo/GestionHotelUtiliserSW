@@ -45,16 +45,17 @@ public class ReserverChambreServ extends HttpServlet {
 			dispat.forward(request, response);
 		}
 		else {
+			Chambre[] listeChambres = new Chambre[100];
+			trouverChambre(new Chambre(1,nbVoyageurs,typeChambre,50),budgetMin,budgetMax,dateDepart,dateArrivee);
 			HttpSession session = request.getSession(); 
-			session.setAttribute("nbVoyageurs", nbVoyageurs);
-			session.setAttribute("budgetMin", budgetMin); 
-			session.setAttribute("budgetMax",budgetMax);
-			session.setAttribute("typeChambre",typeChambre);
-			session.setAttribute("dateArrivee",dateArrivee);
-			session.setAttribute("dateDepart",dateDepart);
-			RequestDispatcher dispat = request.getRequestDispatcher("Visualiser liste chambre.jsp"); 
+			session.setAttribute("listeChambres", listeChambres);
+		
+			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);
 		}
+		
+		
+		
 			
 	}
 
