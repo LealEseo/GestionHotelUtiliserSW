@@ -1,12 +1,15 @@
 package fr.eseo.jee;
 
 import java.io.IOException;
-import java.util.Date; 
+import java.util.Date;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class ReserverChambreServ
@@ -34,7 +37,25 @@ public class ReserverChambreServ extends HttpServlet {
 		String typeChambre = request.getParameter("typeChambre"); 
 		String dateArrivee = request.getParameter("dateArrivee"); 
 		String dateDepart = request.getParameter("dateDepart"); 
-		//COUCOU
+		
+		//Utiliser le serviceWeb 
+		
+		if (budgetMin>budgetMax) {
+			RequestDispatcher dispat = request.getRequestDispatcher("ErreurBudgetMinetMax.jsp"); 
+			dispat.forward(request, response);
+		}
+		else {
+			HttpSession session = request.getSession(); 
+			session.setAttribute("nbVoyageurs", nbVoyageurs);
+			session.setAttribute("budgetMin", budgetMin); 
+			session.setAttribute("budgetMax",budgetMax);
+			session.setAttribute("typeChambre",typeChambre);
+			session.setAttribute("dateArrivee",dateArrivee);
+			session.setAttribute("dateDepart",dateDepart);
+			RequestDispatcher dispat = request.getRequestDispatcher("Visualiser liste chambre.jsp"); 
+			dispat.forward(request, response);
+		}
+			
 	}
 
 }
