@@ -34,7 +34,7 @@ public class ReserverChambreServ extends HttpServlet {
 		String typeChambre = request.getParameter("typeChambre"); 
 		String dateArrivee = request.getParameter("dateArrivee"); 
 		String dateDepart = request.getParameter("dateDepart"); 
-
+		//COUCOU
 	}
 
 }
