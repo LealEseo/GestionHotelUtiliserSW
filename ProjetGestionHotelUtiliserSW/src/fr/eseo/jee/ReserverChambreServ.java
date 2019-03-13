@@ -96,6 +96,7 @@ public class ReserverChambreServ extends HttpServlet {
 			session.setAttribute("typeChambre " + i, listeChambres.get(i).getTypeChambre());
 			}
 			
+			
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);
 		}
