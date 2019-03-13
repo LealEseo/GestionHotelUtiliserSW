@@ -86,6 +86,7 @@ public class ReserverChambreServ extends HttpServlet {
 			int size = listeChambres.size();
 			session.setAttribute("tailleListe", size);
 			
+			
 			for(int i=0; i<size;i++) {
 				System.out.println("For : "+ i );
 			session.setAttribute("idChambre " + i, listeChambres.get(i).getIdChambre());
