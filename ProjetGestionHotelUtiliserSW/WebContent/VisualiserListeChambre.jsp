@@ -7,7 +7,8 @@
 <title>Liste des chambres disponibles</title>
 </head>
 <body>
-	Voici les chambres disponibles selon votre requête : 
+	Voici les chambres disponibles selon votre requête :
+	<%= request.getParameter("listeChambres") %> 
 	
 
 	<a href = "Index.html"> home </a>

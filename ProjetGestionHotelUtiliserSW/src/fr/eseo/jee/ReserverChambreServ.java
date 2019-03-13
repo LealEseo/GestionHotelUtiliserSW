@@ -76,6 +76,7 @@ public class ReserverChambreServ extends HttpServlet {
 			//listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
 			HttpSession session = request.getSession(); 
 			session.setAttribute("listeChambres", listeChambres);
+			//System.out.println(listeChambres[0]);
 		
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);
