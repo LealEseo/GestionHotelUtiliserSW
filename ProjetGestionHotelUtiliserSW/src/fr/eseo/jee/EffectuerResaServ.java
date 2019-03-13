@@ -27,13 +27,13 @@ public class EffectuerResaServ extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int prixJournalier = Integer.parseInt(request.getParameter("prixJournalier"));
-		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
-		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
+//		int prixJournalier = Integer.parseInt(request.getParameter("prixJournalier"));
+//		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
+//		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
 		
-		System.out.println("prixJournalier"+prixJournalier);
-		System.out.println("nbPlaceLit"+nbPlaceLit);
-		System.out.println("idChambre"+idChambre);
+		System.out.println("prixJournalier"+request.getParameter("prixJournalier"));
+		System.out.println("nbPlaceLit"+request.getParameter("idChambre"));
+		System.out.println("idChambre"+request.getParameter("nbPlaceLit"));
 
 	}
 

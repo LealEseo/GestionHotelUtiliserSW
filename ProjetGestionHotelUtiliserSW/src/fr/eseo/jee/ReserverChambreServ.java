@@ -79,7 +79,9 @@ public class ReserverChambreServ extends HttpServlet {
 			dispat.forward(request, response);
 		}
 		
+		
 		else {
+			System.out.println("datepasnull");
 			List<Chambre> listeChambres = new ArrayList<Chambre>();
 			Chambre chambre1 = new Chambre();
 			chambre1.setNbPlaceLit(4);
@@ -117,6 +119,9 @@ public class ReserverChambreServ extends HttpServlet {
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);
 		}
+		
+	 
+			 
 		
 		
 		
