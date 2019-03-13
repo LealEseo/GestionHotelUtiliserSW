@@ -10,8 +10,7 @@
 	Voici les chambres disponibles selon votre requête :
 	
 	Résultat de la recherche : <br>
-	
-	
+		
 	<c:forEach item="${listeChambres}" var="listeChambres">
 		<tr>
 			<td>
