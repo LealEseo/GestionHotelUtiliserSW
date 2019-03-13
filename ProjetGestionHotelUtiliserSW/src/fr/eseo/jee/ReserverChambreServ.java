@@ -43,15 +43,10 @@ public class ReserverChambreServ extends HttpServlet {
 		int prixMin = Integer.parseInt(request.getParameter("prixMin")); 
 		int prixMax = Integer.parseInt(request.getParameter("prixMax"));
 		
-		System.out.println(request.getParameter("prixMin"));
-		System.out.println(request.getParameter("prixMax"));
 		String typeChambre = request.getParameter("typeChambre"); 
 		String dateDeb = request.getParameter("dateDeb"); 
 		String dateFin = request.getParameter("dateFin"); 
-		System.out.println(typeChambre);
-		System.out.println(dateDeb);
-		System.out.println(dateFin);
-		System.out.println(nbVoyageurs);
+	
 		//Utiliser le serviceWeb 
 		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
 		SEIGestionHotelMethodes port = service.getGestionHotelMethodesPort();
@@ -68,18 +63,34 @@ public class ReserverChambreServ extends HttpServlet {
 		}
 		
 		else {
+			System.out.println("coucou1");
 			List<Chambre> listeChambres = new ArrayList<Chambre>();
+			System.out.println("coucou2");
 			Chambre chambre1 = new Chambre();
+			System.out.println("coucou3");
 			chambre1.setNbPlaceLit(4);
+			System.out.println("coucou4");
 			chambre1.setTypeChambre("Suite");
+			System.out.println("coucou5");
 			listeChambres = port.trouverChambre(chambre1, prixMin, prixMax, dateDeb, dateFin);
+			System.out.println("coucou6");
 			//listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
 			HttpSession session = request.getSession(); 
+			System.out.println("coucou7");
 			session.setAttribute("listeChambres", listeChambres);
-			//System.out.println(listeChambres[0]);
+			System.out.println("************************************************************************************");
+			System.out.println("nbVoyageurs"+nbVoyageurs);
+			System.out.println("prixMin"+prixMin);
+			System.out.println("prixMax"+prixMax);
+			System.out.println("dateDeb"+dateDeb);
+			System.out.println("dateFin"+dateFin);
+			System.out.println("typeChambre"+typeChambre);
+			System.out.println("*************************************************************Liste chambres : "+listeChambres.toString());
 		
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
+			System.out.println("coucou8");
 			dispat.forward(request, response);
+			System.out.println("coucou9");
 		}
 		
 		
