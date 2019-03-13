@@ -6,6 +6,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.eseo.servicesweb.GestionHotelMethodesService;
+import fr.eseo.servicesweb.Reservation;
+import fr.eseo.servicesweb.SEIGestionHotelMethodes;
 
 /**
  * Servlet implementation class EffectuerResaServ
@@ -30,11 +35,20 @@ public class EffectuerResaServ extends HttpServlet {
 //		int prixJournalier = Integer.parseInt(request.getParameter("prixJournalier"));
 //		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
 //		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
+		HttpSession session = request.getSession(); 
+		String id = request.getParameter("idReserver");
+		System.out.println("id"+id);
+		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier 0"));
+		System.out.println("------idChambre"+session.getAttribute("idChambre"));
+		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit"));
+		System.out.println("------dateDeb"+session.getAttribute("dateDeb"));
+		System.out.println("------dateFin"+session.getAttribute("dateFin"));
 		
-		System.out.println("prixJournalier"+request.getParameter("prixJournalier"));
-		System.out.println("nbPlaceLit"+request.getParameter("idChambre"));
-		System.out.println("idChambre"+request.getParameter("nbPlaceLit"));
-
+		//Utiliser le serviceWeb 
+		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
+		SEIGestionHotelMethodes port = service.getGestionHotelMethodesPort();
+		
+		//Reservation resa1 = new Reservation(idClient,nbPlaceLit,dateDeb,dateFin);
 	}
 
 }

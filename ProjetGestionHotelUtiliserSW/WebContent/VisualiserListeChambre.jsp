@@ -24,6 +24,7 @@
 		NbPlaceLit : <%= session.getAttribute("nbPlaceLit "+ i) %><br>
 		Prix journalier : <%= session.getAttribute("prixJournalier "+i) %> <br>
 		Type Chambre : <%= session.getAttribute("typeChambre "+i) %> <br>
+		<input type="hidden" value="<%=i %>" name="idReserver"/>
 		<input type="submit" value="Réserver"/> <br>
 	<%}%>
 	

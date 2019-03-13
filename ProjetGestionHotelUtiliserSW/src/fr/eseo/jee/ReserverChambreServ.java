@@ -81,7 +81,6 @@ public class ReserverChambreServ extends HttpServlet {
 		
 		
 		else {
-			System.out.println("datepasnull");
 			List<Chambre> listeChambres = new ArrayList<Chambre>();
 			Chambre chambre1 = new Chambre();
 			chambre1.setNbPlaceLit(4);
@@ -98,13 +97,14 @@ public class ReserverChambreServ extends HttpServlet {
 			System.out.println("dateFin"+dateFin);
 			System.out.println("typeChambre"+typeChambre);
 			System.out.println("************************************************************* \n Liste chambres : "+listeChambres.toString());
-		
+			
 			//On met le rÃ©sultat dans la session 
 			System.out.println("avant for");
 			session.setAttribute("listeChambres", listeChambres);
 			int size = listeChambres.size();
 			session.setAttribute("tailleListe", size);
-			
+			session.setAttribute("dateDeb", dateDeb);
+			session.setAttribute("dateFin", dateFin);
 			
 			for(int i=0; i<size;i++) {
 				System.out.println("For : "+ i );
