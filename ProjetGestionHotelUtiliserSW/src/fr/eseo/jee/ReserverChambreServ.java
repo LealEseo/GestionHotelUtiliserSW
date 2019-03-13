@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import fr.eseo.servicesweb.GestionHotelMethodesService;
 import fr.eseo.servicesweb.SEIGestionHotelMethodes;
-import fr.eseo.servicesweb.test.Chambre;
+import fr.eseo.servicesweb.Chambre;
 import fr.eseo.servicesweb.test.SEITrouverChambreSW;
 import fr.eseo.servicesweb.test.TrouverChambreSWService;
 
