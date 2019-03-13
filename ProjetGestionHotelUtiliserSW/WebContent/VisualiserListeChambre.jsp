@@ -8,9 +8,16 @@
 </head>
 <body>
 	Voici les chambres disponibles selon votre requête :
-	<%= request.getParameter("listeChambres") %> 
 	
-
-	<a href = "Index.html"> home </a>
+	Résultat de la recherche : <br>
+	
+	
+	<c:forEach item="${listeChambres}" var="listeChambres">
+		<tr>
+			<td>
+				${listeChambre.get(0).getIdChambre()}
+			</td>
+		</tr>
+	</c:forEach>
 </body>
 </html>

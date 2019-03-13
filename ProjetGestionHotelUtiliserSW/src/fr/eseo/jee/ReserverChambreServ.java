@@ -63,20 +63,13 @@ public class ReserverChambreServ extends HttpServlet {
 		}
 		
 		else {
-			System.out.println("coucou1");
 			List<Chambre> listeChambres = new ArrayList<Chambre>();
-			System.out.println("coucou2");
 			Chambre chambre1 = new Chambre();
-			System.out.println("coucou3");
 			chambre1.setNbPlaceLit(4);
-			System.out.println("coucou4");
 			chambre1.setTypeChambre("Suite");
-			System.out.println("coucou5");
 			listeChambres = port.trouverChambre(chambre1, prixMin, prixMax, dateDeb, dateFin);
-			System.out.println("coucou6");
 			//listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
 			HttpSession session = request.getSession(); 
-			System.out.println("coucou7");
 			session.setAttribute("listeChambres", listeChambres);
 			System.out.println("************************************************************************************");
 			System.out.println("nbVoyageurs"+nbVoyageurs);
@@ -85,12 +78,24 @@ public class ReserverChambreServ extends HttpServlet {
 			System.out.println("dateDeb"+dateDeb);
 			System.out.println("dateFin"+dateFin);
 			System.out.println("typeChambre"+typeChambre);
-			System.out.println("*************************************************************Liste chambres : "+listeChambres.toString());
+			System.out.println("************************************************************* \n Liste chambres : "+listeChambres.toString());
 		
+			//On met le rÃ©sultat dans la session 
+			System.out.println("avant for");
+			session.setAttribute("listeChambres", listeChambres);
+			int size = listeChambres.size();
+			session.setAttribute("tailleListe", size);
+			for(int i=0; i<size;i++) {
+				System.out.println("For : "+ i );
+			session.setAttribute("idChambre " + i, listeChambres.get(i).getIdChambre());
+			System.out.println(session.getAttribute("idChambre "+i));
+			session.setAttribute("NbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
+			session.setAttribute("Prix journalier " + i, listeChambres.get(i).getPrixJournalier());
+			session.setAttribute("Type chambre " + i, listeChambres.get(i).getTypeChambre());
+			}
+			
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
-			System.out.println("coucou8");
 			dispat.forward(request, response);
-			System.out.println("coucou9");
 		}
 		
 		
