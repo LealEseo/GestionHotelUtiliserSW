@@ -1,6 +1,9 @@
 package fr.eseo.jee;
 
+import eseo.gestionhotel.*;
+
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -45,7 +48,11 @@ public class ReserverChambreServ extends HttpServlet {
 		
 		String typeChambre = request.getParameter("typeChambre"); 
 		String dateDeb = request.getParameter("dateDeb"); 
-		String dateFin = request.getParameter("dateFin"); 
+		String dateFin = request.getParameter("dateFin");
+		
+		LocalDate dateAujourdhui = LocalDate.now();
+		LocalDate dateDebLocalDate = DateUtil.parse(dateDeb);
+		LocalDate dateFinLocalDate = DateUtil.parse(dateFin);
 	
 		//Utiliser le serviceWeb 
 		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
@@ -59,6 +66,16 @@ public class ReserverChambreServ extends HttpServlet {
 		}
 		else if (nbVoyageurs<=0 || prixMin <=0 || prixMax <=0) {
 			RequestDispatcher dispat = request.getRequestDispatcher("ErreurFormat.jsp"); 
+			dispat.forward(request, response);
+		}
+		
+		else if (dateDebLocalDate.isBefore(dateAujourdhui) || dateFinLocalDate.isBefore(dateAujourdhui)) {
+			RequestDispatcher dispat = request.getRequestDispatcher("ErreurDates.jsp"); 
+			dispat.forward(request, response);
+		}
+		
+		else if (dateDebLocalDate.isAfter(dateFinLocalDate) || dateFinLocalDate.isBefore(dateDebLocalDate)) {
+			RequestDispatcher dispat = request.getRequestDispatcher("ErreurDates.jsp"); 
 			dispat.forward(request, response);
 		}
 		
