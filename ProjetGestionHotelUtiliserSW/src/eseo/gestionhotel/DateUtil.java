@@ -1,4 +1,4 @@
-package ch.makery.address.util;
+package eseo.gestionhotel;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -16,7 +16,7 @@ public class DateUtil {
     private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern(DATE_PATTERN);
 
     /**
-     * Retourne la date formatté en string
+     * Retourne la date formattï¿½ en string
      * 
      */
     public static String format(LocalDate date) {
