@@ -3,29 +3,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Reserver une chambre pour mon séjour ! </title>
+<link rel="stylesheet" href="styleFormulaire.css"/>
+
+<title>Réserver une chambre pour mon séjour ! </title>
 </head>
 <body>
+	<div class="styleFormulaire">
 	<form method="post" action="ReserverChambreServ">
-		 Sélectionnez le nombre de voyageurs : </br> 
-		 <input type "number" value=1 name="nbVoyageurs"/>  </br> 
-		 Sélectionnez la date à laquelle vous souhaitez arriver : </br> 
-		 <input type="date" name="dateArrivee"/>  </br> 
-		 Sélectionnez la date à laquelle vous souhaitez repartir : </br> 
-		 <input type="date" name="dateDepart"/>  </br> 
-		 A partir de quel budget/nuit ? </br> 
-		 <input type "number" value=1 name="budgetMin"/>  </br> 
-		 Jusqu'à quel budget/nuit ? </br> 
-		 <input type "number" value=1000 name="budgetMax"/> </br> 
-		 Dans quel type de chambre souhaitez-vous dormir ? </br> 
-		 <select name="typeChambre"></br> 
+	<filedset>
+	<legend> <span class="number">1</span>Le nombre de voyageurs :</legend>
+		 <input type="number" name="nbVoyageurs" placeholder="Nombre de voyageurs"/>  </br> 
+		 
+	<legend> <span class="number">2</span>La date à laquelle vous souhaitez arriver :</legend>
+		 <input type="date" name="dateDeb"/>  </br> 
+	<legend> <span class="number">3</span>La date à laquelle vous souhaitez repartir :</legend>
+		<input type="date" name="dateFin"/>  </br> 
+		
+	<legend> <span class="number">4</span>A partir de quel budget/nuit ? (€)</legend>
+		<input type="number" name="prixMin"/>  </br> 
+	<legend> <span class="number">5</span>Jusqu'à quel budget/nuit ? (€)</legend>
+		 <input type="number" name="prixMax"/> </br> 
+		 
+	<legend> <span class="number">6</span>Dans quel type de chambre souhaitez-vous dormir ?</legend>
+			<select id="typeChambre" name="typeChambre"></br> 
 		 	<Option> Peut m'importe 
 		 	<Option> Chambre Double
 		 	<Option> Chambre Premium
 		 	<Option> Suite
 		 	<Option> Suite Presidentielle
 		 </select> </br> 
-		<input type="submit" value="Rechercher"/> 
+	</filedset>
+		<input type="submit" value="RechercherCoucou"/> 
 	</form>
+	</div>
 </body>
 </html>
