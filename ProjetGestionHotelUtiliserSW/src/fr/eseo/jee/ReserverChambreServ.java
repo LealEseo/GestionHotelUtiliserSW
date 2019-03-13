@@ -91,10 +91,11 @@ public class ReserverChambreServ extends HttpServlet {
 				System.out.println("For : "+ i );
 			session.setAttribute("idChambre " + i, listeChambres.get(i).getIdChambre());
 			System.out.println(session.getAttribute("idChambre "+i));
-			session.setAttribute("NbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
-			session.setAttribute("Prix journalier " + i, listeChambres.get(i).getPrixJournalier());
-			session.setAttribute("Type chambre " + i, listeChambres.get(i).getTypeChambre());
+			session.setAttribute("nbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
+			session.setAttribute("prixJournalier " + i, listeChambres.get(i).getPrixJournalier());
+			session.setAttribute("typeChambre " + i, listeChambres.get(i).getTypeChambre());
 			}
+			
 			
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
 			dispat.forward(request, response);

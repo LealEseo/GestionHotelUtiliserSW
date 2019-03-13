@@ -14,12 +14,21 @@
 	<% List<Chambre> listeChambres = new ArrayList<Chambre>();
 	   int size = ((Integer) session.getAttribute("tailleListe")).intValue(); %>
 	
+	<form method="post" action="EffectuerResaServ">
+	<fieldset>
+	
+	
 	<%for(int i=0; i<size;i++){ %>
-		idChambre : <%= session.getAttribute("idChambre "+ i) %>
-		NbPlaceLit : <%= session.getAttribute("NbPlaceLit "+ i) %>
-		Prix journalier : <%= session.getAttribute("Prix journalier "+i) %>
-		Type Chambre : <%= session.getAttribute("Type chambre "+i) %>
+		<br>
+		idChambre : <%= session.getAttribute("idChambre "+ i) %> <br>
+		NbPlaceLit : <%= session.getAttribute("nbPlaceLit "+ i) %><br>
+		Prix journalier : <%= session.getAttribute("prixJournalier "+i) %> <br>
+		Type Chambre : <%= session.getAttribute("typeChambre "+i) %> <br>
+		<input type="submit" value="Réserver"/> <br>
 	<%}%>
+	
+	</fieldset>
+	</form>
 	
 
 </body>
