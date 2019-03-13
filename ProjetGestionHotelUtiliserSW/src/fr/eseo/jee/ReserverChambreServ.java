@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eseo.servicesweb.GestionHotelMethodesService;
+import fr.eseo.servicesweb.SEIGestionHotelMethodes;
 import fr.eseo.servicesweb.test.Chambre;
 import fr.eseo.servicesweb.test.SEITrouverChambreSW;
 import fr.eseo.servicesweb.test.TrouverChambreSWService;
@@ -51,8 +53,8 @@ public class ReserverChambreServ extends HttpServlet {
 		System.out.println(dateFin);
 		System.out.println(nbVoyageurs);
 		//Utiliser le serviceWeb 
-		TrouverChambreSWService service = new TrouverChambreSWService(); 
-		SEITrouverChambreSW port = service.getTrouverChambreSWPort();
+		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
+		SEIGestionHotelMethodes port = service.getGestionHotelMethodesPort();
 		
 		
 		if (prixMin>prixMax) {
@@ -70,7 +72,8 @@ public class ReserverChambreServ extends HttpServlet {
 			Chambre chambre1 = new Chambre();
 			chambre1.setNbPlaceLit(4);
 			chambre1.setTypeChambre("Suite");
-			listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
+			listeChambres = port.trouverChambre(chambre1, prixMin, prixMax, dateDeb, dateFin);
+			//listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
 			HttpSession session = request.getSession(); 
 			session.setAttribute("listeChambres", listeChambres);
 		
