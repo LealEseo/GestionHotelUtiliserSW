@@ -18,9 +18,11 @@ import javax.servlet.http.HttpSession;
 
 import fr.eseo.servicesweb.GestionHotelMethodesService;
 import fr.eseo.servicesweb.SEIGestionHotelMethodes;
-import fr.eseo.servicesweb.Chambre;
+import fr.eseo.serviceswebbis.Chambre;
 import fr.eseo.servicesweb.test.SEITrouverChambreSW;
 import fr.eseo.servicesweb.test.TrouverChambreSWService;
+import fr.eseo.serviceswebbis.GestionHotelMethodesBisService;
+import fr.eseo.serviceswebbis.SEIGestionHotelMethodeBis;
 
 /**
  * Servlet implementation class ReserverChambreServ
@@ -55,8 +57,8 @@ public class ReserverChambreServ extends HttpServlet {
 		LocalDate dateFinLocalDate = DateUtil.parse(dateFin);
 	
 		//Utiliser le serviceWeb 
-		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
-		SEIGestionHotelMethodes port = service.getGestionHotelMethodesPort();
+		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
+		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
 		
 		
 		if (prixMin>prixMax) {
