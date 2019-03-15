@@ -8,40 +8,41 @@
 <title>Liste des chambres disponibles</title>
 </head>
 <body>
-	Voici les chambres disponibles selon votre requête :
+	Chambre(s) disponible(s) selon vos critères de recherche :<br>
 	
-	Résultat de la recherche : <br>
+	
 	<% List<Chambre> listeChambres = new ArrayList<Chambre>();
 	   int size = ((Integer) session.getAttribute("tailleListe")).intValue(); %>
 	
 	<form method="get" action="EffectuerResaServ">
 	<fieldset>
 	
-	<%for(int i=1; i<size+1;i++){ %>
+	
+	<%for(int i=0; i<size;i++){ %>
 		<br>
-		
-		itération : <%= i %> <br>
-		idChambre : <%= session.getAttribute("idChambre "+ i) %> <br>
-		NbPlaceLit : <%= session.getAttribute("nbPlaceLit "+ i) %><br>
+		Réservation numéro <%= i %> <br>
+		Numéro de chambre : <%= session.getAttribute("idChambre "+ i) %> <br>
+		Nombre de place lit : <%= session.getAttribute("nbPlaceLit "+ i) %><br>
 		Prix journalier : <%= session.getAttribute("prixJournalier "+i) %> <br>
-		Type Chambre : <%= session.getAttribute("typeChambre "+i) %> <br>
-		<input type="hidden" value="valeur" name="idValue"/>
-		<input type="hidden" value="<%=i %>" name="idReserver" id="idReserver"/>
-		<input type="submit" value="Réserver"/> <br>
+		Chambre de type : <%= session.getAttribute("typeChambre "+i) %> <br>
+
 	<%}%>
 	
 	</fieldset>
 	</form>
 	
-	<legend> <span class="number"></span>Quel chambre voulez-vous réserver ?</legend>
-			<select id="typeChambre" name="typeChambre"></br> 
-			<%for(int i=1; i<size+1;i++){ %>
-				<Option> Chambre n° <%= session.getAttribute("idChambre "+ i) %>
-		
-		<%}%>
-		 	
-		 </select> </br> 
 	
+	Quelle réservation voulez-vous confirmer ?
+			<select id="reservation" name="reservation">
+			<%for(int i=0; i<size;i++){ %>
+		 	<Option> Reservation chambre <%= session.getAttribute("idChambre "+ i) %> 
+		 	<%}%>
+		 </select> 
+	
+	
+		<input type="hidden" value="valeur" name="idValue"/>
+		<input type="hidden" value="valeur" name="idReserver" id="idReserver"/>
+		<input type="submit" value="Confirmer la réservation"/> <br>
 
 </body>
 </html>

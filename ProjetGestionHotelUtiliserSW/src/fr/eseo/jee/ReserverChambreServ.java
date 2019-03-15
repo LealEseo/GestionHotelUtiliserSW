@@ -91,17 +91,8 @@ public class ReserverChambreServ extends HttpServlet {
 			//listeChambres = port.trouverChambre(chambre1,prixMin,prixMax,dateDeb,dateFin);
 			HttpSession session = request.getSession(); 
 			session.setAttribute("listeChambres", listeChambres);
-			System.out.println("************************************************************************************");
-			System.out.println("nbVoyageurs"+nbVoyageurs);
-			System.out.println("prixMin"+prixMin);
-			System.out.println("prixMax"+prixMax);
-			System.out.println("dateDeb"+dateDeb);
-			System.out.println("dateFin"+dateFin);
-			System.out.println("typeChambre"+typeChambre);
-			System.out.println("************************************************************* \n Liste chambres : "+listeChambres.toString());
 			
 			//On met le rÃ©sultat dans la session 
-			System.out.println("avant for");
 			session.setAttribute("listeChambres", listeChambres);
 			int size = listeChambres.size();
 			session.setAttribute("tailleListe", size);
@@ -109,7 +100,6 @@ public class ReserverChambreServ extends HttpServlet {
 			session.setAttribute("dateFin", dateFin);
 			
 			for(int i=0; i<size;i++) {
-				System.out.println("For : "+ i );
 			session.setAttribute("idChambre " + i, listeChambres.get(i).getIdChambre());
 			System.out.println(session.getAttribute("idChambre "+i));
 			session.setAttribute("nbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
