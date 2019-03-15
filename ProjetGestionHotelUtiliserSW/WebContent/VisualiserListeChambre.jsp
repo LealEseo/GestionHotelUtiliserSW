@@ -43,10 +43,10 @@
 			<select id="reservation" name="reservation">
 			<%for(int i=1; i<size+1;i++){ %>
 		 	<Option> Reservation numéro <%=i%>
-
+<%} %>
 		 </select>
 	
-	<%} %>
+	
 		<input type="hidden" value="valeur" name="idValue"/>
 		<input type="hidden" value="valeur" name="idReserver" id="idReserver"/>
 		<input type="submit" value="Confirmer la réservation"/> <br>
