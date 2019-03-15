@@ -29,7 +29,7 @@
 	<%}%>
 	
 	</fieldset>
-	</form>
+
 	
 	
 	Quelle réservation voulez-vous confirmer ?
@@ -44,5 +44,6 @@
 		<input type="hidden" value="valeur" name="idReserver" id="idReserver"/>
 		<input type="submit" value="Confirmer la réservation"/> <br>
 
+	</form>
 </body>
 </html>

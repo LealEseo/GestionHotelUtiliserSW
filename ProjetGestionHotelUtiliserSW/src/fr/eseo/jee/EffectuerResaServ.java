@@ -14,11 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 
-import fr.eseo.servicesweb.GestionHotelMethodesService;
 import fr.eseo.serviceswebbis.GestionHotelMethodesBisService;
 import fr.eseo.serviceswebbis.Reservation;
 import fr.eseo.serviceswebbis.SEIGestionHotelMethodeBis;
-import fr.eseo.servicesweb.SEIGestionHotelMethodes;
 
 /**
  * Servlet implementation class EffectuerResaServ
@@ -40,6 +38,7 @@ public class EffectuerResaServ extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Récupération de la session
+		System.out.println("Dans service effectuerResaServlet");
 		HttpSession session = request.getSession(); 
 		
 		int idClient = Integer.parseInt((String) session.getAttribute("idClient"));
@@ -48,6 +47,8 @@ public class EffectuerResaServ extends HttpServlet {
 		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
 		String dateDeb = (String) session.getAttribute("dateDeb");
 		String dateFin = (String) session.getAttribute("dateFin");
+		
+		System.out.println("Après récupération des attibuts de la réservation");
 		
 		Date date1=null;
 		Date date2=null;
@@ -60,7 +61,7 @@ public class EffectuerResaServ extends HttpServlet {
 			e.printStackTrace();
 		} 
 		
-		String typeChambre = request.getParameter("typeChambre");
+		String typeChambre = request.getParameter("reservation");
 		System.out.println("idclient :"+ idClient);
 		System.out.println("Chambre choisie : "+ typeChambre);
 		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "));
