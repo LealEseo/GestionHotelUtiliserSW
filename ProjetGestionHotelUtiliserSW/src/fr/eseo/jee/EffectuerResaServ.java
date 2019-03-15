@@ -48,7 +48,7 @@ public class EffectuerResaServ extends HttpServlet {
 		System.out.println("part 1 : 0"+part[1]+"0");
 		int idClient = ((Integer) session.getAttribute("idClient")).intValue();
 		System.out.println("Id Client : "+ idClient);
-		int prixJournalier =((Integer) session.getAttribute("prixJournalier "+ part[1])).intValue();
+		Float prixJournalier =((Float) session.getAttribute("prixJournalier "+ part[1])).floatValue();
 		int idChambre = Integer.parseInt(request.getParameter("idChambre "+ part[1]));
 		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit "+ part[1]));
 		String dateDeb = (String) session.getAttribute("dateDeb");

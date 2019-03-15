@@ -42,7 +42,7 @@
 	<legend2>Quelle réservation voulez-vous confirmer ?</legend2><br>
 			<select id="reservation" name="reservation">
 			<%for(int i=1; i<size+1;i++){ %>
-		 	<Option> Reservation numéro <%=i%>
+		 	<Option> Reservation numero <%=i%>
 <%} %>
 		 </select>
 	
