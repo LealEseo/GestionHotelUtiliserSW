@@ -21,6 +21,7 @@
 	
 	<%for(int i=0; i<size;i++){ %>
 		<br>
+		<hr>
 		
 		Réservation numéro <%= i %> <br>
 		Numéro de chambre : <%= session.getAttribute("idChambre "+ i) %> <br>
@@ -31,18 +32,19 @@
 		Fin de séjour le : <%= session.getAttribute("dateFin") %><br>
 		<br>
 		<br/>
+		</hr>
 		
 
 	<%}%>
 	
 	</fieldset>
 	
-	<legend2>Quelle réservation voulez-vous confirmer ?</legend2>
+	<legend2>Quelle réservation voulez-vous confirmer ?</legend2><br>
 			<select id="reservation" name="reservation">
 			<%for(int i=0; i<size;i++){ %>
-		 	<Option> Reservation chambre <%= session.getAttribute("idChambre "+ i) %> 
+		 	<Option> Reservation chambre <%= session.getAttribute("idChambre "+ i) %>
 		 	<%}%>
-		 </select> 
+		 </select>
 	
 	
 		<input type="hidden" value="valeur" name="idValue"/>
