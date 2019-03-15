@@ -41,7 +41,7 @@ public class EffectuerResaServ extends HttpServlet {
 		System.out.println("Dans service effectuerResaServlet");
 		HttpSession session = request.getSession(); 
 		
-		int idClient = Integer.parseInt((String) session.getAttribute("idClient"));
+		int idClient = ((Integer) session.getAttribute("idClient")).intValue();
 		int prixJournalier = Integer.parseInt((String) session.getAttribute("prixJournalier "));
 		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
 		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
