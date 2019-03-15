@@ -41,17 +41,12 @@
 	
 	<legend2>Quelle réservation voulez-vous confirmer ?</legend2><br>
 			<select id="reservation" name="reservation">
-<<<<<<< HEAD
 			<%for(int i=1; i<size+1;i++){ %>
 		 	<Option> Reservation numéro <%=i%>
-=======
-			<%for(int i=0; i<size;i++){ %>
-		 	<Option> Reservation chambre <%= session.getAttribute("idChambre "+ i) %>
->>>>>>> branch 'master' of https://github.com/LealEseo/GestionHotelUtiliserSW
-		 	<%}%>
+
 		 </select>
 	
-	
+	<%} %>
 		<input type="hidden" value="valeur" name="idValue"/>
 		<input type="hidden" value="valeur" name="idReserver" id="idReserver"/>
 		<input type="submit" value="Confirmer la réservation"/> <br>
