@@ -37,12 +37,13 @@ public class EffectuerResaServ extends HttpServlet {
 //		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
 		HttpSession session = request.getSession(); 
 		String id = request.getParameter("idReserver");
-		System.out.println("id"+id);
-		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier 0"));
-		System.out.println("------idChambre"+session.getAttribute("idChambre"));
-		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit"));
-		System.out.println("------dateDeb"+session.getAttribute("dateDeb"));
-		System.out.println("------dateFin"+session.getAttribute("dateFin"));
+		System.out.println("idValue : " + request.getParameter("idValue"));
+		System.out.println("id : "+ id);
+		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "));
+		System.out.println("------idChambre"+session.getAttribute("idChambre "));
+		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit "));
+		System.out.println("------dateDeb"+session.getAttribute("dateDeb "));
+		System.out.println("------dateFin"+session.getAttribute("dateFin "));
 		
 		//Utiliser le serviceWeb 
 		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
