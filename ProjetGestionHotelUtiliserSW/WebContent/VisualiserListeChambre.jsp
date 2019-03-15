@@ -17,9 +17,9 @@
 	<form method="get" action="EffectuerResaServ">
 	<fieldset>
 	
-	
-	<%for(int i=0; i<size;i++){ %>
+	<%for(int i=1; i<size+1;i++){ %>
 		<br>
+		
 		itération : <%= i %> <br>
 		idChambre : <%= session.getAttribute("idChambre "+ i) %> <br>
 		NbPlaceLit : <%= session.getAttribute("nbPlaceLit "+ i) %><br>
@@ -32,6 +32,15 @@
 	
 	</fieldset>
 	</form>
+	
+	<legend> <span class="number"></span>Quel chambre voulez-vous réserver ?</legend>
+			<select id="typeChambre" name="typeChambre"></br> 
+			<%for(int i=1; i<size+1;i++){ %>
+				<Option> Chambre n° <%=i %>
+		
+		<%}%>
+		 	
+		 </select> </br> 
 	
 
 </body>

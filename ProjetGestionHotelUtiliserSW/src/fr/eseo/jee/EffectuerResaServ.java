@@ -36,9 +36,8 @@ public class EffectuerResaServ extends HttpServlet {
 //		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
 //		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
 		HttpSession session = request.getSession(); 
-		String id = request.getParameter("idReserver");
-		System.out.println("idValue : " + request.getParameter("idValue"));
-		System.out.println("id : "+ id);
+		String id = request.getParameter("typeChambre");
+		System.out.println("Chambre choisie : "+ id);
 		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "));
 		System.out.println("------idChambre"+session.getAttribute("idChambre "));
 		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit "));
