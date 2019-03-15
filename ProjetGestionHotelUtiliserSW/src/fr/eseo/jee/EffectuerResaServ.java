@@ -49,8 +49,11 @@ public class EffectuerResaServ extends HttpServlet {
 		int idClient = ((Integer) session.getAttribute("idClient")).intValue();
 		System.out.println("Id Client : "+ idClient);
 		Float prixJournalier =((Float) session.getAttribute("prixJournalier "+ part[1])).floatValue();
-		int idChambre = Integer.parseInt(request.getParameter("idChambre "+ part[1]));
-		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit "+ part[1]));
+	
+		int idChambre = ((Integer) session.getAttribute("idChambre "+ part[1])).intValue();
+		System.out.println("idChambre : "+idChambre);
+		int nbPlaceLit = ((Integer) session.getAttribute("nbPlaceLit "+ part[1])).intValue();
+		System.out.println("nbPlacelit : "+nbPlaceLit);
 		String dateDeb = (String) session.getAttribute("dateDeb");
 		String dateFin = (String) session.getAttribute("dateFin");
 		
@@ -71,9 +74,9 @@ public class EffectuerResaServ extends HttpServlet {
 		String typeChambre = request.getParameter("reservation");
 		System.out.println("idclient :"+ idClient);
 		System.out.println("Chambre choisie : "+ typeChambre);
-		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "));
-		System.out.println("------idChambre"+session.getAttribute("idChambre "));
-		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit "));
+		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "+part[1]));
+		System.out.println("------idChambre"+session.getAttribute("idChambre "+part[1]));
+		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit "+part[1]));
 		System.out.println("------dateDeb"+session.getAttribute("dateDeb"));
 		System.out.println("------dateFin"+session.getAttribute("dateFin"));
 		
