@@ -36,7 +36,7 @@
 	<legend> <span class="number"></span>Quel chambre voulez-vous réserver ?</legend>
 			<select id="typeChambre" name="typeChambre"></br> 
 			<%for(int i=1; i<size+1;i++){ %>
-				<Option> Chambre n° <%=i %>
+				<Option> Chambre n° <%= session.getAttribute("idChambre "+ i) %>
 		
 		<%}%>
 		 	
