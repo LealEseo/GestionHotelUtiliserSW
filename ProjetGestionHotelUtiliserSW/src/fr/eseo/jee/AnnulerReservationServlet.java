@@ -1,6 +1,8 @@
 package fr.eseo.jee;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,17 +33,26 @@ public class AnnulerReservationServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(); 
-		//Récupération de l'id de la réservation à annuler
-		int idReservation = Integer.parseInt((String) session.getAttribute("idReservation"));
-		System.out.println("idReservation : "+ idReservation);
-		
-		//Annuler la réservation 
-		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
+		String id = request.getParameter("idReservation");
+		System.out.println("id"+id);
+		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier"));
+		int idInt = Integer.parseInt(id);
+		// Utiliser le serviceWeb
+		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService();
 		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
 		
-		boolean result = port.annulerChambre(idReservation);
+		boolean resa = false;
+		resa = port.annulerChambre(idInt);
+		if (resa) {
+			System.out.print("Exécution réussie");
+			RequestDispatcher dispat = request.getRequestDispatcher("annuleOk.jsp"); 
+			dispat.forward(request, response);
+		} else {
+			System.out.print("Problème d'exécution");
+			RequestDispatcher dispat = request.getRequestDispatcher("annulePASOk.jsp"); 
+			dispat.forward(request, response);
+		}
+		
+		
 	}
-
-
-
 }
