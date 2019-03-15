@@ -41,10 +41,16 @@ public class EffectuerResaServ extends HttpServlet {
 		System.out.println("Dans service effectuerResaServlet");
 		HttpSession session = request.getSession(); 
 		
+		
+		String chambreChoisie = request.getParameter("reservation");
+		System.out.println("Chambre choisie : "+ chambreChoisie);
+		String[] part = chambreChoisie.split("numero ");
+		System.out.println("part 1 : 0"+part[1]+"0");
 		int idClient = ((Integer) session.getAttribute("idClient")).intValue();
-		int prixJournalier = Integer.parseInt((String) session.getAttribute("prixJournalier "));
-		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
-		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
+		System.out.println("Id Client : "+ idClient);
+		int prixJournalier =((Integer) session.getAttribute("prixJournalier "+ part[1])).intValue();
+		int idChambre = Integer.parseInt(request.getParameter("idChambre "+ part[1]));
+		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit "+ part[1]));
 		String dateDeb = (String) session.getAttribute("dateDeb");
 		String dateFin = (String) session.getAttribute("dateFin");
 		
@@ -61,6 +67,7 @@ public class EffectuerResaServ extends HttpServlet {
 			e.printStackTrace();
 		} 
 		
+		System.out.println("Dates : "+ date1 + " - "+ date2);
 		String typeChambre = request.getParameter("reservation");
 		System.out.println("idclient :"+ idClient);
 		System.out.println("Chambre choisie : "+ typeChambre);
@@ -74,6 +81,7 @@ public class EffectuerResaServ extends HttpServlet {
 		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
 		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
 		
+
 		Reservation reservation = new Reservation();
 		reservation.setIdChambre(idChambre);
 		reservation.setIdClient(idClient);
@@ -82,8 +90,10 @@ public class EffectuerResaServ extends HttpServlet {
 		reservation.setNbPlaces(nbPlaceLit);
 		reservation.setPaiementEffectue(false);
 		
+		System.out.println("Avant méthode reserver chambre");
 		int idReservation = port.reserverChambre(reservation);
 		session.setAttribute("idReservation", idReservation);
+		System.out.println("Après méthod ereserver chambre");
 		
 		RequestDispatcher dispat = request.getRequestDispatcher("VisualiserReservation.jsp"); 
 		dispat.forward(request, response);

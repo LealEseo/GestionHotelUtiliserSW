@@ -19,7 +19,7 @@
 	<form method="get" action="EffectuerResaServ">
 	<fieldset>
 	
-	<%for(int i=0; i<size;i++){ %>
+	  <%for(int i=1; i<size+1;i++){ %>
 		<br>
 		
 		Réservation numéro <%= i %> <br>
@@ -33,14 +33,14 @@
 		<br/>
 		
 
-	<%}%>
+	<%}%> 
 	
 	</fieldset>
 	
 	<legend2>Quelle réservation voulez-vous confirmer ?</legend2>
 			<select id="reservation" name="reservation">
-			<%for(int i=0; i<size;i++){ %>
-		 	<Option> Reservation chambre <%= session.getAttribute("idChambre "+ i) %> 
+			<%for(int i=1; i<size+1;i++){ %>
+		 	<Option> Reservation numéro <%=i%>
 		 	<%}%>
 		 </select> 
 	
