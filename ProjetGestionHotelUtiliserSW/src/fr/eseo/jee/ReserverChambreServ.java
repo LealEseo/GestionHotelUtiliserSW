@@ -100,11 +100,11 @@ public class ReserverChambreServ extends HttpServlet {
 			session.setAttribute("dateFin", dateFin);
 			
 			for(int i=0; i<size;i++) {
-			session.setAttribute("idChambre " + i, listeChambres.get(i).getIdChambre());
-			System.out.println(session.getAttribute("idChambre "+i));
-			session.setAttribute("nbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
-			session.setAttribute("prixJournalier " + i, listeChambres.get(i).getPrixJournalier());
-			session.setAttribute("typeChambre " + i, listeChambres.get(i).getTypeChambre());
+				int idChambre = listeChambres.get(i).getIdChambre();
+			//session.setAttribute("idChambre " + idChambre , listeChambres.get(i).getIdChambre());
+			session.setAttribute("nbPlaceLit " + idChambre, listeChambres.get(i).getNbPlaceLit());
+			session.setAttribute("prixJournalier " + idChambre, listeChambres.get(i).getPrixJournalier());
+			session.setAttribute("typeChambre " + idChambre, listeChambres.get(i).getTypeChambre());
 			}
 			
 			
