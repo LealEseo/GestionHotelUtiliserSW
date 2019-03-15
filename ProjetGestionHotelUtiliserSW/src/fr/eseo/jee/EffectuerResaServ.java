@@ -1,15 +1,23 @@
 package fr.eseo.jee;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 
 import fr.eseo.servicesweb.GestionHotelMethodesService;
-import fr.eseo.servicesweb.Reservation;
+import fr.eseo.serviceswebbis.GestionHotelMethodesBisService;
+import fr.eseo.serviceswebbis.Reservation;
+import fr.eseo.serviceswebbis.SEIGestionHotelMethodeBis;
 import fr.eseo.servicesweb.SEIGestionHotelMethodes;
 
 /**
@@ -31,24 +39,53 @@ public class EffectuerResaServ extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//		int prixJournalier = Integer.parseInt(request.getParameter("prixJournalier"));
-//		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
-//		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
+		// Récupération de la session
 		HttpSession session = request.getSession(); 
-		String id = request.getParameter("typeChambre");
-		System.out.println("Chambre choisie : "+ id);
+		
+		int idClient = Integer.parseInt((String) session.getAttribute("idClient"));
+		int prixJournalier = Integer.parseInt((String) session.getAttribute("prixJournalier "));
+		int idChambre = Integer.parseInt(request.getParameter("idChambre"));
+		int nbPlaceLit = Integer.parseInt(request.getParameter("nbPlaceLit"));
+		String dateDeb = (String) session.getAttribute("dateDeb");
+		String dateFin = (String) session.getAttribute("dateFin");
+		
+		Date date1=null;
+		Date date2=null;
+		try {
+			date1 = new SimpleDateFormat("YYYY-MM-dd").parse(dateDeb);
+			date2 =new SimpleDateFormat("YYYY-MM-dd").parse(dateFin); 
+		
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		String typeChambre = request.getParameter("typeChambre");
+		System.out.println("idclient :"+ idClient);
+		System.out.println("Chambre choisie : "+ typeChambre);
 		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier "));
 		System.out.println("------idChambre"+session.getAttribute("idChambre "));
 		System.out.println("----nbPlaceLit"+session.getAttribute("nbPlaceLit "));
-		System.out.println("------dateDeb"+session.getAttribute("dateDeb "));
-		System.out.println("------dateFin"+session.getAttribute("dateFin "));
+		System.out.println("------dateDeb"+session.getAttribute("dateDeb"));
+		System.out.println("------dateFin"+session.getAttribute("dateFin"));
 		
 		//Utiliser le serviceWeb 
-		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
-		SEIGestionHotelMethodes port = service.getGestionHotelMethodesPort();
+		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
+		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
 		
-		//Reservation resa1 = new Reservation(idClient,nbPlaceLit,dateDeb,dateFin);
+		Reservation reservation = new Reservation();
+		reservation.setIdChambre(idChambre);
+		reservation.setIdClient(idClient);
+		reservation.setDateDeb(date1);
+		reservation.setDateFin(date2);
+		reservation.setNbPlaces(nbPlaceLit);
+		reservation.setPaiementEffectue(false);
+		
+		int idReservation = port.reserverChambre(reservation);
+		session.setAttribute("idReservation", idReservation);
+		
+		RequestDispatcher dispat = request.getRequestDispatcher("VisualiserReservation.jsp"); 
+		dispat.forward(request, response);
 	}
 
 }

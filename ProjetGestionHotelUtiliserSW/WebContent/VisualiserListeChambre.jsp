@@ -14,7 +14,7 @@
 	<% List<Chambre> listeChambres = new ArrayList<Chambre>();
 	   int size = ((Integer) session.getAttribute("tailleListe")).intValue(); %>
 	
-	<form method="get" action="EffectuerResaServ">
+	<form method="post" action="EffectuerResaServ">
 	<fieldset>
 	
 	

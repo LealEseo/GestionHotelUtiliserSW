@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.eseo.serviceswebbis.GestionHotelMethodesBisService;
+import fr.eseo.serviceswebbis.SEIGestionHotelMethodeBis;
+
 /**
  * Servlet implementation class AnnulerReservationServlet
  */
@@ -28,9 +31,15 @@ public class AnnulerReservationServlet extends HttpServlet {
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(); 
-		String id = request.getParameter("idReservation");
-		System.out.println("id"+id);
-		System.out.println("----prixJournalier"+session.getAttribute("prixJournalier"));
+		//Récupération de l'id de la réservation à annuler
+		int idReservation = Integer.parseInt((String) session.getAttribute("idReservation"));
+		System.out.println("idReservation : "+ idReservation);
+		
+		//Annuler la réservation 
+		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
+		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
+		
+		boolean result = port.annulerChambre(idReservation);
 	}
 
 

@@ -52,9 +52,9 @@ public final class SEIGestionHotelMethodes_GestionHotelMethodesPort_Client {
         {
         System.out.println("Invoking reserverChambre...");
         fr.eseo.servicesweb.Reservation _reserverChambre_arg0 = new fr.eseo.servicesweb.Reservation();
-        fr.eseo.servicesweb.Date _reserverChambre_arg0DateDeb = new fr.eseo.servicesweb.Date();
+        fr.eseo.servicesweb.DateNulle _reserverChambre_arg0DateDeb = new fr.eseo.servicesweb.DateNulle();
         _reserverChambre_arg0.setDateDeb(_reserverChambre_arg0DateDeb);
-        fr.eseo.servicesweb.Date _reserverChambre_arg0DateFin = new fr.eseo.servicesweb.Date();
+        fr.eseo.servicesweb.DateNulle _reserverChambre_arg0DateFin = new fr.eseo.servicesweb.DateNulle();
         _reserverChambre_arg0.setDateFin(_reserverChambre_arg0DateFin);
         _reserverChambre_arg0.setIdChambre(344929030);
         _reserverChambre_arg0.setIdClient(1199455815);

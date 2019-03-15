@@ -113,11 +113,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Date }
+     * Create an instance of {@link DateNulle }
      * 
      */
-    public Date createDate() {
-        return new Date();
+    public DateNulle createDate() {
+        return new DateNulle();
     }
 
     /**

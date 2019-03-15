@@ -77,9 +77,9 @@ public final class SEIGestionHotelMethodeBis_GestionHotelMethodesBisPort_Client 
         {
         System.out.println("Invoking reserverChambre...");
         fr.eseo.serviceswebbis.Reservation _reserverChambre_arg0 = new fr.eseo.serviceswebbis.Reservation();
-        fr.eseo.serviceswebbis.Date _reserverChambre_arg0DateDeb = new fr.eseo.serviceswebbis.Date();
+        java.util.Date _reserverChambre_arg0DateDeb = new java.util.Date();
         _reserverChambre_arg0.setDateDeb(_reserverChambre_arg0DateDeb);
-        fr.eseo.serviceswebbis.Date _reserverChambre_arg0DateFin = new fr.eseo.serviceswebbis.Date();
+        java.util.Date _reserverChambre_arg0DateFin = new java.util.Date();
         _reserverChambre_arg0.setDateFin(_reserverChambre_arg0DateFin);
         _reserverChambre_arg0.setIdChambre(-639703213);
         _reserverChambre_arg0.setIdClient(400082941);

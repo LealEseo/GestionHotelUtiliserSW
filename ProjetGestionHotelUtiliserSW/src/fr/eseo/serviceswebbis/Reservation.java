@@ -1,6 +1,8 @@
 
 package fr.eseo.serviceswebbis;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -9,7 +11,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java pour reservation complex type.
  * 
- * <p>Le fragment de schéma suivant indique le contenu attendu figurant dans cette classe.
+ * <p>Le fragment de schï¿½ma suivant indique le contenu attendu figurant dans cette classe.
  * 
  * <pre>
  * &lt;complexType name="reservation"&gt;
@@ -52,7 +54,7 @@ public class Reservation {
     protected boolean paiementEffectue;
 
     /**
-     * Obtient la valeur de la propriété dateDeb.
+     * Obtient la valeur de la propriï¿½tï¿½ dateDeb.
      * 
      * @return
      *     possible object is
@@ -64,19 +66,19 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété dateDeb.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ dateDeb.
      * 
-     * @param value
+     * @param _reserverChambre_arg0DateDeb
      *     allowed object is
      *     {@link Date }
      *     
      */
-    public void setDateDeb(Date value) {
-        this.dateDeb = value;
+    public void setDateDeb(Date _reserverChambre_arg0DateDeb) {
+        this.dateDeb = _reserverChambre_arg0DateDeb;
     }
 
     /**
-     * Obtient la valeur de la propriété dateFin.
+     * Obtient la valeur de la propriï¿½tï¿½ dateFin.
      * 
      * @return
      *     possible object is
@@ -88,19 +90,19 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété dateFin.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ dateFin.
      * 
-     * @param value
+     * @param _reserverChambre_arg0DateFin
      *     allowed object is
      *     {@link Date }
      *     
      */
-    public void setDateFin(Date value) {
-        this.dateFin = value;
+    public void setDateFin(Date _reserverChambre_arg0DateFin) {
+        this.dateFin = _reserverChambre_arg0DateFin;
     }
 
     /**
-     * Obtient la valeur de la propriété idChambre.
+     * Obtient la valeur de la propriï¿½tï¿½ idChambre.
      * 
      */
     public int getIdChambre() {
@@ -108,7 +110,7 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété idChambre.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ idChambre.
      * 
      */
     public void setIdChambre(int value) {
@@ -116,7 +118,7 @@ public class Reservation {
     }
 
     /**
-     * Obtient la valeur de la propriété idClient.
+     * Obtient la valeur de la propriï¿½tï¿½ idClient.
      * 
      */
     public int getIdClient() {
@@ -124,7 +126,7 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété idClient.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ idClient.
      * 
      */
     public void setIdClient(int value) {
@@ -132,7 +134,7 @@ public class Reservation {
     }
 
     /**
-     * Obtient la valeur de la propriété idReservation.
+     * Obtient la valeur de la propriï¿½tï¿½ idReservation.
      * 
      */
     public int getIdReservation() {
@@ -140,7 +142,7 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété idReservation.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ idReservation.
      * 
      */
     public void setIdReservation(int value) {
@@ -148,7 +150,7 @@ public class Reservation {
     }
 
     /**
-     * Obtient la valeur de la propriété nbPlaces.
+     * Obtient la valeur de la propriï¿½tï¿½ nbPlaces.
      * 
      */
     public int getNbPlaces() {
@@ -156,7 +158,7 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété nbPlaces.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ nbPlaces.
      * 
      */
     public void setNbPlaces(int value) {
@@ -164,7 +166,7 @@ public class Reservation {
     }
 
     /**
-     * Obtient la valeur de la propriété paiementEffectue.
+     * Obtient la valeur de la propriï¿½tï¿½ paiementEffectue.
      * 
      */
     public boolean isPaiementEffectue() {
@@ -172,7 +174,7 @@ public class Reservation {
     }
 
     /**
-     * Définit la valeur de la propriété paiementEffectue.
+     * Dï¿½finit la valeur de la propriï¿½tï¿½ paiementEffectue.
      * 
      */
     public void setPaiementEffectue(boolean value) {
