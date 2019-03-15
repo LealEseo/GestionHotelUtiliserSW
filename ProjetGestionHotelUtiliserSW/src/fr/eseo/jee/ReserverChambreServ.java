@@ -101,10 +101,10 @@ public class ReserverChambreServ extends HttpServlet {
 			
 			for(int i=1; i<size+1;i++) {
 				//int idChambre = listeChambres.get(i).getIdChambre();
-			session.setAttribute("idChambre " + i , listeChambres.get(i).getIdChambre());
-			session.setAttribute("nbPlaceLit " + i, listeChambres.get(i).getNbPlaceLit());
-			session.setAttribute("prixJournalier " + i, listeChambres.get(i).getPrixJournalier());
-			session.setAttribute("typeChambre " + i, listeChambres.get(i).getTypeChambre());
+			session.setAttribute("idChambre " + i, listeChambres.get(i-1).getIdChambre());
+			session.setAttribute("nbPlaceLit " + i, listeChambres.get(i-1).getNbPlaceLit());
+			session.setAttribute("prixJournalier " + i, listeChambres.get(i-1).getPrixJournalier());
+			session.setAttribute("typeChambre " + i, listeChambres.get(i-1).getTypeChambre());
 			}
 				
 			RequestDispatcher dispat = request.getRequestDispatcher("VisualiserListeChambre.jsp"); 
