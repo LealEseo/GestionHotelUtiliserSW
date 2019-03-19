@@ -32,11 +32,14 @@ public class PayerChambreServ extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("Dans payer chambre");
 		HttpSession session = request.getSession();
-		int idReservation = (int) session.getAttribute("idReservation");
+		int idReservation = ((Integer) session.getAttribute("idReservation")).intValue();
+		System.out.println("IdReservation : "+ idReservation);
 		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
 		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
-		if(idReservation != Integer.valueOf(null)) {
+		
+		if(idReservation != 0) {
 			boolean paiement = port.payerChambre(idReservation);
 			if(paiement) {
 				RequestDispatcher dispat = request.getRequestDispatcher("paiementReussi.jsp");

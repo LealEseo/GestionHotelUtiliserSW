@@ -5,7 +5,6 @@ import eseo.gestionhotel.*;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -16,13 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.eseo.servicesweb.GestionHotelMethodesService;
-import fr.eseo.servicesweb.SEIGestionHotelMethodes;
-import fr.eseo.serviceswebbis.Chambre;
-import fr.eseo.servicesweb.test.SEITrouverChambreSW;
-import fr.eseo.servicesweb.test.TrouverChambreSWService;
-import fr.eseo.serviceswebbis.GestionHotelMethodesBisService;
-import fr.eseo.serviceswebbis.SEIGestionHotelMethodeBis;
+import fr.eseo.ee.serviceweb.Chambre;
+import fr.eseo.ee.serviceweb.GestionHotelMethodesService;
+import fr.eseo.ee.serviceweb.SEIGestionHotelMethodesJEE;
 
 /**
  * Servlet implementation class ReserverChambreServ
@@ -57,8 +52,8 @@ public class ReserverChambreServ extends HttpServlet {
 		LocalDate dateFinLocalDate = DateUtil.parse(dateFin);
 	
 		//Utiliser le serviceWeb 
-		GestionHotelMethodesBisService service = new GestionHotelMethodesBisService(); 
-		SEIGestionHotelMethodeBis port = service.getGestionHotelMethodesBisPort();
+		GestionHotelMethodesService service = new GestionHotelMethodesService(); 
+		SEIGestionHotelMethodesJEE port = service.getGestionHotelMethodesPort();
 		
 		
 		if (prixMin>prixMax) {
@@ -98,6 +93,9 @@ public class ReserverChambreServ extends HttpServlet {
 			session.setAttribute("tailleListe", size);
 			session.setAttribute("dateDeb", dateDeb);
 			session.setAttribute("dateFin", dateFin);
+			System.out.println("date debut récupérée : "+ dateDeb);
+			System.out.println("date fin récupérée : "+ dateFin);
+			 
 			
 			for(int i=1; i<size+1;i++) {
 				//int idChambre = listeChambres.get(i).getIdChambre();
